@@ -19,7 +19,7 @@ void thresholdFilterCPU(
 ) {
     const int size = width * height;
     for (int i = 0; i < size; ++i)
-        output[i] = (input[i] > threshold) ? 1 : 0;
+        output[i] = (input[i] > threshold) ? 255 : 0;
 }
 
 void test_cpu(const int width, const int height, unsigned char threshold) {
@@ -55,7 +55,7 @@ __global__ void thresholdFilterCUDA(
     const int y = blockDim.y * blockIdx.y + threadIdx.y;
     if (x < width && y < height) {
         const int idx = x + y * width;
-        output[idx] = (input[idx] > threshold) ? 1 : 0;
+        output[idx] = (input[idx] > threshold) ? 255 : 0;
     }
 }
 
