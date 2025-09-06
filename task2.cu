@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono>
+
 #include <cuda_runtime.h>
 
 void fill_array(unsigned char* A, const int& N) {
